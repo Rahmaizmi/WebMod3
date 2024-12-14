@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pemesanan</title>
+    <!-- Internal CSS -->
+    <style>
+      /* Mengatur lebar input untuk Id Pemesanan dan Nomor Identitas */
+      #id,
+      #nomor_id {
+        width: 98%;
+      }
+
+      /* Mengatur lebar input untuk Tanggal Pesan */
+      #tgl_pesan {
+        width: 99%;
+      }
+
+      /* Mengatur lebar input untuk Durasi Menginap */
+      #hari {
+        width: 13%;
+      }
+
+      /* Mengatur tombol SIMPAN */
+      button[name="save"] {
+        background-color: rgb(44, 120, 252);
+        border: none;
+        padding: 10px;
+        margin-right: 10px;
+      }
+
+      /* Mengatur tombol BATAL */
+      button[name="cancel"] {
+        background-color: rgb(249, 212, 62);
+        border: none;
+        padding: 10px;
+      }
+
+      /* Mengatur tombol pada baris */
+      td[colspan="2"] {
+        padding-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Form Pemesanan</h1>
+    <form method="get" action="tugas1.html">
+      <table border="0">
+        <tr>
+          <td><label for="inputTeks">Id Pemesanan</label></td>
+          <td>
+            <input type="number" id="id" name="id" pattern="[0-9]" required />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="inputTeks">Nama Pemesan</label></td>
+          <td>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              maxlength="35"
+              min="5"
+              size="50"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="inputTeks">Nomor Identitas</label></td>
+          <td>
+            <input
+              type="number"
+              id="nomor_id"
+              name="nomor_id"
+              pattern="[0-9]"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="input">Tipe Kamar</label></td>
+          <td>
+            <select name="kamar">
+              <option value="-" selected>--Pilih Salah Satu--</option>
+              <option value="std">STANDAR</option>
+              <option value="dlx">DELUXE</option>
+              <option value="fam">FAMILY</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="inputTeks">Harga</label></td>
+          <td>
+            <input
+              type="text"
+              id="harga"
+              name="harga"
+              maxlength="35"
+              min="5"
+              size="50"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="inputTeks">Tanggal Pesan</label></td>
+          <td>
+            <input type="date" id="tgl_pesan" name="tgl_pesan" required />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="inputTeks">Durasi Menginap</label></td>
+          <td>
+            <input
+              type="number"
+              id="hari"
+              name="hari"
+              pattern="[0-9]"
+              required
+            />
+            <span>Hari</span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="inputTeks">Termasuk Breakfast</label></td>
+          <td>
+            <input type="checkbox" id="sarapan" name="sarapan" value="ya" />
+            <label for="sarapan"> Ya </label><br />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="inputTeks">Total Bayar</label></td>
+          <td>
+            <input
+              type="text"
+              id="total"
+              name="total"
+              maxlength="35"
+              min="5"
+              size="50"
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2">
+            <button name="save" value="simpan">SIMPAN</button>
+            <button type="reset" name="cancel" value="batal">BATAL</button>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

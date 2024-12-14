@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Tambah Data Kamar dan Fasilitas</title>
+    <link rel="stylesheet" href="css/styleTugas2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Form Data Kamar</h1>
+      <form method="post" action="tugas2.html">
+        <table>
+          <tr>
+            <td><label for="id">Id Kamar</label></td>
+            <td><input type="number" id="id" name="id" required /></td>
+          </tr>
+          <tr>
+            <td><label for="kamar">Jenis Kamar</label></td>
+            <td>
+              <select
+                id="kamar"
+                name="kamar"
+                required
+                onchange="showGambar(this.value)"
+              >
+                <option value="" selected disabled>--Pilih Salah Satu--</option>
+                <option value="standar">STANDAR</option>
+                <option value="deluxe">DELUXE</option>
+                <option value="family">FAMILY</option>
+              </select>
+            </td>
+          </tr>
+          <tr class="gambar-ruangan" id="gambarContainer" style="display: none">
+            <td><label for="gambar">Gambar Ruangan</label></td>
+            <td>
+              <div id="gambarOptions"></div>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="harga">Harga</label></td>
+            <td><input type="number" id="harga" name="harga" required /></td>
+          </tr>
+          <tr>
+            <td><label for="fasilitas">Fasilitas</label></td>
+            <td>
+              <input
+                type="checkbox"
+                id="fasilitas1"
+                name="fasilitas[]"
+                value="TV"
+              />
+              <label for="fasilitas1"> TV </label><br />
+              <input
+                type="checkbox"
+                id="fasilitas2"
+                name="fasilitas[]"
+                value="Wi-fi"
+              />
+              <label for="fasilitas2"> Wi-fi </label><br />
+              <input
+                type="checkbox"
+                id="fasilitas3"
+                name="fasilitas[]"
+                value="AC"
+              />
+              <label for="fasilitas3"> AC </label><br />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center">
+              <input type="submit" value="Submit" />
+            </td>
+          </tr>
+        </table>
+      </form>
+
+      <h1>Form Tambah Fasilitas</h1>
+      <form method="post" action="tugas2.html">
+        <table>
+          <tr>
+            <td><label for="id_fasilitas">Id Fasilitas</label></td>
+            <td>
+              <input
+                type="number"
+                id="id_fasilitas"
+                name="id_fasilitas"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="nama_fasilitas">Nama Fasilitas</label></td>
+            <td>
+              <input
+                type="text"
+                id="nama_fasilitas"
+                name="nama_fasilitas"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="harga_weekend">Harga Weekend</label></td>
+            <td>
+              <input
+                type="number"
+                id="harga_weekend"
+                name="harga_weekend"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="harga_weekday">Harga Weekday</label></td>
+            <td>
+              <input
+                type="number"
+                id="harga_weekday"
+                name="harga_weekday"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="kuota">Kuota</label></td>
+            <td><input type="number" id="kuota" name="kuota" required /></td>
+          </tr>
+          <tr>
+            <td><label for="jam_buka">Jam Buka</label></td>
+            <td>
+              <input type="time" id="jam_buka" name="jam_buka" required />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="jam_tutup">Jam Tutup</label></td>
+            <td>
+              <input type="time" id="jam_tutup" name="jam_tutup" required />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center">
+              <input type="submit" value="Submit" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <script>
+      function showGambar(jenis) {
+        const gambarOptions = document.getElementById("gambarOptions");
+        const gambarContainer = document.getElementById("gambarContainer");
+        gambarOptions.innerHTML = ""; // Kosongkan pilihan gambar
+
+        let images = [];
+        if (jenis === "standar") {
+          images = ["gambar/kamarstandar1.jpeg", "gambar/kamarstandar2.jpg"];
+        } else if (jenis === "deluxe") {
+          images = ["gambar/kamardeluxe1.jpeg", "gambar/kamardeluxe2.jpg"];
+        } else if (jenis === "family") {
+          images = ["gambar/kamarfamily1.jpg", "gambar/kamarfamily2.avif"];
+        }
+
+        images.forEach((image) => {
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = "gambar";
+          radio.value = image;
+          radio.id = image;
+
+          const label = document.createElement("label");
+          label.htmlFor = image;
+          label.innerHTML = `<img src="${image}" alt="${image}" />`;
+
+          gambarOptions.appendChild(radio);
+          gambarOptions.appendChild(label);
+        });
+
+        // Tampilkan container gambar jika ada gambar
+        gambarContainer.style.display =
+          images.length > 0 ? "table-row" : "none";
+      }
+    </script>
+  </body>
+</html>

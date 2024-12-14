@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Container utama */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Memastikan container mengambil minimal tinggi layar */
+}
+
+/* Header */
+.header {
+  background-color: darkred; /* Warna latar belakang header */
+  color: white; /* Warna teks header */
+  text-align: center;
+  padding: 40px;
+}
+
+/* Bagian utama */
+.main {
+  display: flex;
+  flex: 1; /* Membuat main mengambil sisa tinggi yang tersedia */
+}
+
+/* Sidebar kiri */
+.sidebar {
+  width: 20%; /* Lebar sidebar */
+  background-color: #f3b9b9; /* Warna latar belakang sidebar */
+  padding: 16px;
+}
+
+/* Konten utama */
+.content {
+  flex: 1; /* Membuat konten mengambil sisa ruang yang tersedia */
+  padding: 16px;
+  background-color: #ffffff; /* Warna latar belakang konten */
+}
+
+/* Rightbar */
+.rightbar {
+  width: 20%; /* Lebar rightbar */
+  background-color: #f3b9b9; /* Warna latar belakang rightbar */
+  padding: 16px;
+}
+
+/* Footer */
+.footer {
+  background-color: #8b0000; /* Warna latar belakang footer */
+  color: white; /* Warna teks footer */
+  text-align: center;
+  padding: 20px;
+}
